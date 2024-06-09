@@ -1,0 +1,13 @@
+console.log(2 * 10); // Exercise 1
+console.log(100 % 7); // Exercise 2
+console.log(Math.pow(10, 3)); // Exercise 3
+console.log("5" + 10); // Exercise 4
+console.log(!true); // Exercise 5
+console.log("hello" + "world"); // Exercise 6
+console.log(typeof 123); // Exercise 7
+console.log("2" < 4); // Exercise 8
+console.log(15 > 10 && 15 <= 20); // Exercise 9
+console.log("hello" !== undefined && "hello" !== false); // Exercise 10
+console.log(25 % 2 === 0 ? "Even" : "Odd"); // Exercise 11
+let x = 10, y = 20;
+console.log(x > y ? x : y); // Exercise 12
