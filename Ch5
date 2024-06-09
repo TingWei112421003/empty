@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+</head>
+<body>
+    <h1>JavaScript Functions</h1>
+
+    <h2>計算任意數量數字的平均值</h2>
+    <label for="averageNumbers">請輸入數字（用逗號分隔）：</label>
+    <input type="text" id="averageNumbers" name="averageNumbers">
+    <button onclick="calculateAverage()">計算</button>
+    <p>平均值：<span id="averageResult"></span></p>
+
+    <h2>檢查一個數字是否為質數</h2>
+    <label for="primeNumber">請輸入一個數字：</label>
+    <input type="number" id="primeNumber" name="primeNumber">
+    <button onclick="checkPrime()">檢查</button>
+    <p>質數檢查結果：<span id="primeResult"></span></p>
+
+    <h2>將一個數字轉換為二進位表示法的字串</h2>
+    <label for="binaryNumber">請輸入一個數字：</label>
+    <input type="number" id="binaryNumber" name="binaryNumber">
+    <button onclick="convertToBinary()">轉換</button>
+    <p>二進位表示法：<span id="binaryResult"></span></p>
+
+    <h2>找出陣列中的最小值與最大值</h2>
+    <label for="minMaxArray">請輸入數字（用逗號分隔）：</label>
+    <input type="text" id="minMaxArray" name="minMaxArray">
+    <button onclick="findMinMax()">查找</button>
+    <p>最小值：<span id="minResult"></span>, 最大值：<span id="maxResult"></span></p>
+
+    <script>
+        // 1. 函式用來計算任意數量數字的平均值
+        function calculateAverage() {
+            const numbersInput = document.getElementById('averageNumbers').value.trim();
+            const numbersArray = numbersInput.split(',').map(Number);
+            const sum = numbersArray.reduce((acc, curr) => acc + curr, 0);
+            const average = sum / numbersArray.length;
+            document.getElementById('averageResult').innerText = average;
+        }
+
+        // 2. 函式用來檢查一個數字是否為質數
+        function checkPrime() {
+            const number = parseInt(document.getElementById('primeNumber').value.trim());
+            let primeResult = '否';
+            if (number > 1) {
+                for (let i = 2; i <= Math.sqrt(number); i++) {
+                    if (number % i === 0) {
+                        primeResult = '否';
+                        break;
+                    } else {
+                        primeResult = '是';
+                    }
+                }
+            }
+            document.getElementById('primeResult').innerText = primeResult;
+        }
+
+        // 3. 函式用來將一個數字轉換為二進位表示法的字串
+        function convertToBinary() {
+            const number = parseInt(document.getElementById('binaryNumber').value.trim());
+            const binary = number.toString(2);
+            document.getElementById('binaryResult').innerText = binary;
+        }
+
+        // 4. 函式用來找出陣列中的最小值與最大值
+        function findMinMax() {
+            const numbersInput = document.getElementById('minMaxArray').value.trim();
+            const numbersArray = numbersInput.split(',').map(Number);
+            const min = Math.min(...numbersArray);
+            const max = Math.max(...numbersArray);
+            document.getElementById('minResult').innerText = min;
+            document.getElementById('maxResult').innerText = max;
+        }
+    </script>
+</body>
+</html>
